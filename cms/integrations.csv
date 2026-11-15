@@ -1,0 +1,3 @@
+"Slug","System name","Purpose","Data shared","Status"
+"email-gateway","Email Gateway","Delivers the tracker's reminder and decision emails, and reports back whether each one arrived.","Sent: the recipient's email address, the subject, and the message. Returned: the delivery status (sent, bounced, or failed).","Simulated"
+"lto","LTO (Land Transportation Office)","Where riders renew their driver's licenses and where vans are registered. The renewal happens there, not in the tracker.","None. The owner brings back the renewed copy and uploads it.","Outside our system, not connected"

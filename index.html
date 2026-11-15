@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMART Document Expiry Tracker</title>
+  <meta name="description" content="SMART Document Expiry Tracker keeps a delivery company's driver's licenses and vehicle registrations in one place and emails reminders 30, 14, and 7 days before each one expires. Group 3 reference build for the Framer landing page.">
+  <meta name="theme-color" content="#1E2761">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231E2761'/%3E%3Cpath d='M10 7h9l5 5v13H10z' fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='21' cy='22' r='5.5' fill='%23E8A33D'/%3E%3Cpath d='M21 19.5V22l1.6 1.2' stroke='%231E2761' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Fonts: Caladea and Carlito are free fonts with the same letter widths as
+       Cambria and Calibri, the fonts the Group 3 deck uses. Framer has both
+       in its Google Fonts list. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#problem">Skip to content</a>
+
+  <!-- ================================================================
+       HEADER  (group split: Hero and layout)
+       ================================================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1E2761"/>
+          <path d="M10 7h9l5 5v13H10z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="21" cy="22" r="5.5" fill="#E8A33D"/>
+          <path d="M21 19.5V22l1.6 1.2" stroke="#1E2761" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name"><b>SMART</b> Document Expiry Tracker</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span>Menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Sections">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#user-flow">User flow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================================================================
+         SECTION 1 · HERO  (group split: Hero and layout)
+         Instructor brief: name, users, and main value (Module 1)
+         ================================================================ -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">SMART Document Expiry Tracker</p>
+          <h1 id="hero-title">No license or registration expires by surprise.</h1>
+          <p class="lead">For delivery companies: every rider’s driver’s license and every vehicle’s registration in one place, with an email reminder 30, 14, and 7 days before each one expires.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#solution">See how it works</a>
+            <a class="btn btn-ghost" href="#user-flow">Follow Ana’s renewal</a>
+          </div>
+
+          <div class="users">
+            <p class="users-title">Built for three people</p>
+            <ul>
+              <li><strong>Document owners</strong> Riders and drivers who keep their own papers current.</li>
+              <li><strong>Managers</strong> Check each renewed copy and hear about any lapse.</li>
+              <li><strong>Administrator</strong> Sets the reminder schedule and approves new documents.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mock-up reminder email. Simulated: nothing is sent. -->
+        <figure class="email-figure">
+          <div class="email" aria-label="Example reminder email">
+            <div class="email-bar" aria-hidden="true"><i></i><i></i><i></i><span>Inbox</span></div>
+            <div class="email-head">
+              <p class="email-subject">Your driver’s license expires in 14 days</p>
+              <dl class="email-meta">
+                <dt>From</dt><dd>SMART Document Expiry Tracker &lt;reminders@bagtas-express.example&gt;</dd>
+                <dt>To</dt><dd>Ana Santos</dd>
+                <dt>Date</dt><dd>Mon, 1 Feb 2027, 8:00 AM</dd>
+              </dl>
+            </div>
+            <div class="email-body">
+              <p>Hi Ana,</p>
+              <p>Your driver’s license (ending in 4821) expires on <strong>Monday, 15 February 2027</strong>. That’s 14 days from today.</p>
+              <p>Renew it with the LTO, then upload a photo or PDF of the new card. Once your manager checks it, these reminders stop.</p>
+              <span class="email-cta" aria-hidden="true">Upload renewed copy</span>
+              <ol class="email-steps" aria-label="Reminder schedule for this license">
+                <li class="is-done">30 days · sent</li>
+                <li class="is-now">14 days · this email</li>
+                <li>7 days · next</li>
+              </ol>
+              <p class="email-foot">Bagtas Express · Fleet documents</p>
+            </div>
+          </div>
+          <figcaption class="mock-note">
+            <span class="tag tag--sim">Simulated</span>
+            <span>Simulated example. No real email is sent.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         REAL / SIMULATED LABELS  (group split: User flow plus labels)
+         Project rule: label real and simulated parts.
+         ================================================================ -->
+    <section class="labels" aria-labelledby="labels-title">
+      <div class="container labels-inner">
+        <h2 id="labels-title">What’s real on this page</h2>
+        <ul>
+          <li><span class="tag tag--real">Real</span><span>This Framer site, and the LTO rules in the Problem section, with their sources.</span></li>
+          <li><span class="tag tag--fic">Fictional example</span><span>Bagtas Express, Ana, and every name, date, and number about them.</span></li>
+          <li><span class="tag tag--sim">Simulated</span><span>Reminder emails and approval flows. No email is sent and nothing is approved.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 2 · PROBLEM  (group split: Problem)
+         Instructor brief: disconnected work, double entry (Modules 3, 8)
+         ================================================================ -->
+    <section id="problem" class="section" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3.5 2.8 19.5h18.4z"/><path d="M12 10v4.5"/><path d="M12 17.2v.1"/></svg>
+          </span>
+          <div>
+            <p class="kicker">The problem</p>
+            <h2 id="problem-title">Expiry dates live in three places, and nobody owns them.</h2>
+          </div>
+        </div>
+        <p class="section-intro"><span class="tag tag--fic">Fictional example</span> Bagtas Express runs 40 riders and 12 delivery vans. Like many small fleets, it tracks the papers that keep them legal by hand.</p>
+
+        <div class="cards cards--4">
+          <article class="card">
+            <h3>Three separate lists</h3>
+            <p>HR keeps a spreadsheet, the fleet manager keeps a notebook, and each rider keeps the card in their wallet. None of them are connected.</p>
+          </article>
+          <article class="card">
+            <h3>Typed in twice</h3>
+            <p>When a rider renews, HR updates the spreadsheet and the manager updates the notebook. If either one forgets, the lists stop matching.</p>
+          </article>
+          <article class="card">
+            <h3>Dates that disagree</h3>
+            <p>The spreadsheet says Van 7 is registered until July. The papers in the glovebox say June.</p>
+          </article>
+          <article class="card card--accent">
+            <h3>What it costs</h3>
+            <p>A van caught with lapsed registration means a ₱10,000 fine for the company, and the van can be impounded. A rider whose license lapses is off deliveries until it’s renewed.</p>
+          </article>
+        </div>
+
+        <!-- Real LTO rules. Each one is linked to its source. -->
+        <div class="facts on-dark">
+          <div class="facts-head">
+            <h3>Why these dates slip</h3>
+            <span class="tag tag--real">Real · LTO rules</span>
+          </div>
+          <p class="facts-intro">These are real LTO rules. They’re why a delivery company can’t track expiry dates from memory.</p>
+          <ul class="fact-list">
+            <li class="fact">
+              <p class="fact-num">5 or 10 years</p>
+              <p>How long a driver’s license lasts, counted from the holder’s birthdate. Ten years is for drivers with no violations in the past five. Either way, it’s a long time to remember one date.</p>
+              <p class="fact-src">Source: <a href="https://lto.gov.ph/wp-content/uploads/2023/09/IRR-RA10930-1.pdf" target="_blank" rel="noopener">LTO, rules implementing RA 10930</a></p>
+            </li>
+            <li class="fact">
+              <p class="fact-num">Jan to Oct</p>
+              <p>A vehicle’s registration month comes from the last digit of its plate: 1 is January, 9 is September, 0 is October. A fleet’s renewals are spread across the year, not on one date.</p>
+              <p class="fact-src">Source: <a href="https://lto.gov.ph/rsu-monitoring/35-latest-advisory/20-motor-vehicle-registration-schedule-based-on-the-plate-number.html" target="_blank" rel="noopener">LTO, registration schedule by plate number</a></p>
+            </li>
+            <li class="fact">
+              <p class="fact-num">₱10,000</p>
+              <p>The fine for driving an unregistered vehicle, charged to the vehicle’s owner, plus ₱1,000 for the driver. It is the penalty behind the “No Registration, No Travel” rule.</p>
+              <p class="fact-src">Sources: <a href="https://lto.gov.ph/wp-content/uploads/2024/06/JAO-2014-01.pdf" target="_blank" rel="noopener">JAO 2014-01 on lto.gov.ph</a>; <a href="https://www.officialgazette.gov.ph/2015/03/25/dotc-motor-vehicle-registration-papers-good-for-only-7-days/" target="_blank" rel="noopener">Official Gazette, 25 March 2015</a></p>
+            </li>
+          </ul>
+          <p class="facts-checked">Checked 8 November 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 3 · SOLUTION  (group split: Solution)
+         Instructor brief: how the system fixes it; say what changes for
+         the people who use it (Module 8)
+         ================================================================ -->
+    <section id="solution" class="section section--soft" aria-labelledby="solution-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.2 2.8 2.8L16.2 9.4"/></svg>
+          </span>
+          <div>
+            <p class="kicker">The solution</p>
+            <h2 id="solution-title">One record per document, and a reminder before it lapses.</h2>
+          </div>
+        </div>
+        <p class="section-intro">Each license and registration is entered once, checked once, and watched until it’s renewed. Here’s what changes for the people at Bagtas Express.</p>
+
+        <div class="solution-grid">
+          <ul class="changes" aria-label="What changes">
+            <li class="change">
+              <span class="before"><span class="sr-only">Before: </span>Three lists that disagree</span>
+              <svg class="change-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              <span class="after"><span class="sr-only">After: </span>One record per document</span>
+            </li>
+            <li class="change">
+              <span class="before"><span class="sr-only">Before: </span>Someone has to remember to check</span>
+              <svg class="change-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              <span class="after"><span class="sr-only">After: </span>Reminders at 30, 14, and 7 days</span>
+            </li>
+            <li class="change">
+              <span class="before"><span class="sr-only">Before: </span>Every renewal typed in twice</span>
+              <svg class="change-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              <span class="after"><span class="sr-only">After: </span>The rider uploads the new copy once</span>
+            </li>
+            <li class="change">
+              <span class="before"><span class="sr-only">Before: </span>Lapses found at a checkpoint</span>
+              <svg class="change-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              <span class="after"><span class="sr-only">After: </span>The manager is told the day it lapses</span>
+            </li>
+          </ul>
+
+          <div class="solution-side">
+            <div class="highlight">
+              <h3>Bagtas Express’s solution</h3>
+              <p>One tracker that reminds the rider, checks the new copy, and stops the reminders once it’s renewed.</p>
+            </div>
+
+            <div class="schedule">
+              <div class="schedule-head">
+                <h3>The reminder schedule</h3>
+                <span class="tag tag--sim">Simulated</span>
+              </div>
+              <ol>
+                <li><span class="days">30</span><span><strong>days out</strong><br>First heads-up</span></li>
+                <li><span class="days">14</span><span><strong>days out</strong><br>Time to act</span></li>
+                <li><span class="days">7</span><span><strong>days out</strong><br>Final warning</span></li>
+              </ol>
+              <p class="schedule-note">The administrator can change these days.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="roles-head">
+          <h3>What changes for each person</h3>
+          <span class="tag tag--sim">Approval flows simulated</span>
+        </div>
+        <div class="roles">
+          <article class="role">
+            <span class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>
+            </span>
+            <h4>Document owner</h4>
+            <p class="role-who">Riders and drivers</p>
+            <p>Gets reminders by email instead of finding out at a checkpoint. Uploads the renewed copy from a phone. If it’s returned, sees exactly why.</p>
+          </article>
+          <article class="role">
+            <span class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="m8.5 12.3 2.4 2.4 4.6-4.9"/></svg>
+            </span>
+            <h4>Manager</h4>
+            <p class="role-who">Fleet or operations manager</p>
+            <p>Checks each renewed copy against the record, then approves it or returns it with a reason. Hears about a lapse the day it happens.</p>
+          </article>
+          <article class="role">
+            <span class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/></svg>
+            </span>
+            <h4>Administrator</h4>
+            <p class="role-who">Runs the tracker</p>
+            <p>Sets the reminder schedule and approves new documents before they’re tracked. Reads the delivery report to catch emails that didn’t arrive.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 4 · INTEGRATIONS  (group split: Integrations CMS)
+         Instructor brief: systems, purpose, and shared data (Modules 3, 8)
+         Each system is one CMS item. The items come from
+         js/integrations-data.js (the same rows as cms/integrations.csv).
+         ================================================================ -->
+    <section id="integrations" class="section" aria-labelledby="integrations-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9.5 7H7.5a5 5 0 0 0 0 10h2"/><path d="M14.5 7h2a5 5 0 0 1 0 10h-2"/><path d="M8.5 12h7"/></svg>
+          </span>
+          <div>
+            <p class="kicker">Integrations</p>
+            <h2 id="integrations-title">What the tracker connects to</h2>
+          </div>
+        </div>
+        <p class="section-intro">Each system below is one item in the Integrations CMS collection. Every item has the same four fields: system name, purpose, data shared, and status.</p>
+
+        <div class="cms-bar">
+          <p class="cms-meta" id="cms-meta">CMS collection <code>Integrations</code></p>
+          <div class="view-toggle" role="group" aria-label="Show integrations as">
+            <button type="button" data-view="cards" aria-pressed="true">Cards</button>
+            <button type="button" data-view="table" aria-pressed="false">CMS table</button>
+          </div>
+        </div>
+
+        <div id="int-cards" class="int-cards" data-view-panel="cards"></div>
+        <div id="int-table" class="table-wrap" data-view-panel="table" hidden tabindex="0" role="region" aria-label="Integrations CMS table"></div>
+        <noscript><p class="int-note">Turn on JavaScript to see the integrations, or open <code>cms/integrations.csv</code>.</p></noscript>
+
+        <p class="int-note">The LTO is listed because every renewal happens there. The tracker never talks to it. It only records the result when the owner uploads the new copy.</p>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 5 · USER FLOW  (group split: User flow plus labels)
+         Instructor brief: one person's path through the solution.
+         Boxes are screens. Arrows are actions.
+         Source: deck, "Document owner uploads the new copy" plus
+         "Renewal decision comes back", with "returned" (not "rejected").
+         ================================================================ -->
+    <section id="user-flow" class="section section--soft" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"/></svg>
+          </span>
+          <div>
+            <p class="kicker">User flow</p>
+            <h2 id="flow-title">Ana uploads her renewed license</h2>
+          </div>
+        </div>
+
+        <div class="flow-layout">
+          <aside class="flow-aside" aria-label="About this flow">
+            <div class="ana">
+              <div class="ana-head">
+                <span class="avatar" aria-hidden="true">A</span>
+                <div>
+                  <p class="ana-name">Ana Santos</p>
+                  <p class="ana-role">Rider, Bagtas Express</p>
+                </div>
+              </div>
+              <p class="ana-tag"><span class="tag tag--fic">Fictional example</span></p>
+              <p class="ana-caption">Ana is a rider at Bagtas Express. Her driver’s license expires in 14 days, and she has already renewed it at the LTO. When the 14-day reminder arrives, she taps <strong>Upload renewed copy</strong>.</p>
+              <p class="task"><b>Task</b>Get the renewed license on record so the reminders stop.</p>
+            </div>
+
+            <div class="legend-box">
+              <p class="legend-title">How to read it</p>
+              <ul class="legend">
+                <li><i class="lg lg--end" aria-hidden="true"></i>Start or end</li>
+                <li><i class="lg lg--screen" aria-hidden="true"></i>Screen</li>
+                <li><i class="lg lg--decision" aria-hidden="true"></i>Decision</li>
+                <li><i class="lg lg--error" aria-hidden="true"></i>Error screen</li>
+                <li><i class="lg lg--arrow" aria-hidden="true"></i>What Ana does</li>
+                <li><i class="lg lg--conn" aria-hidden="true">A</i>Jump to the same letter</li>
+              </ul>
+              <p class="legend-sim"><span class="tag tag--sim">Simulated</span> Nothing is uploaded or approved.</p>
+            </div>
+          </aside>
+
+          <div class="flow-card">
+            <div class="flow">
+              <p class="flow-part">Ana’s path · from the reminder to the updated record</p>
+
+              <div class="frow frow--out">
+                <div class="fmain"><div class="node node--end">Has the renewed card; opens the 14-day reminder</div></div>
+              </div>
+              <div class="frow frow--arrow"><div class="varrow"><span>taps Upload renewed copy</span></div></div>
+
+              <div class="frow frow--in frow--out">
+                <div class="fmain"><div class="node node--screen"><strong>Upload a new copy</strong><span>photo or PDF</span></div></div>
+                <div class="fline fline--back" aria-hidden="true"></div>
+                <div class="fside">
+                  <span class="flabel">retakes photo</span>
+                  <span class="conn" role="img" aria-label="Connector A">A</span>
+                </div>
+              </div>
+              <div class="frow frow--arrow"><div class="varrow"><span>selects the file</span></div></div>
+
+              <div class="frow frow--in frow--out">
+                <div class="fmain"><div class="node node--decision"><span>File readable?</span></div></div>
+                <div class="fline" aria-hidden="true"></div>
+                <div class="fside">
+                  <span class="flabel">no</span>
+                  <div class="node node--error"><strong>Shows what failed</strong><span>blurry, wrong format</span></div>
+                  <span class="goto"><span aria-hidden="true">→</span><span class="conn" role="img" aria-label="go to connector A">A</span></span>
+                </div>
+              </div>
+              <div class="frow frow--arrow"><div class="varrow"><span>yes</span></div></div>
+
+              <div class="frow frow--in frow--out">
+                <div class="fmain"><div class="node node--screen"><strong>Enter new expiry date</strong><span>checked against today</span></div></div>
+                <div class="fline fline--back" aria-hidden="true"></div>
+                <div class="fside">
+                  <span class="flabel">corrects the date</span>
+                  <span class="conn" role="img" aria-label="Connector B">B</span>
+                </div>
+              </div>
+              <div class="frow frow--arrow"><div class="varrow"><span>types the new date</span></div></div>
+
+              <div class="frow frow--in frow--out">
+                <div class="fmain"><div class="node node--decision"><span>Date in the future?</span></div></div>
+                <div class="fline" aria-hidden="true"></div>
+                <div class="fside">
+                  <span class="flabel">no</span>
+                  <div class="node node--error"><strong>Shows the error</strong><span>date already passed</span></div>
+                  <span class="goto"><span aria-hidden="true">→</span><span class="conn" role="img" aria-label="go to connector B">B</span></span>
+                </div>
+              </div>
+              <div class="frow frow--arrow"><div class="varrow"><span>yes</span></div></div>
+
+              <div class="frow frow--in frow--wait-out">
+                <div class="fmain"><div class="node node--screen"><strong>Pending verification</strong><span>status + date shown</span></div></div>
+                <div class="fline" aria-hidden="true"></div>
+                <div class="fside">
+                  <span class="flabel">waits past the expiry date</span>
+                  <div class="node node--end node--bad">Expired; manager notified</div>
+                </div>
+              </div>
+
+              <div class="frow frow--arrow"><div class="varrow varrow--wait"><span>waits a few days for the manager’s check</span></div></div>
+
+              <div class="frow frow--wait-in frow--out">
+                <div class="fmain"><div class="node node--screen"><strong>Decision email</strong><span>the result is ready</span></div></div>
+              </div>
+              <div class="frow frow--arrow"><div class="varrow"><span>taps View decision</span></div></div>
+
+              <div class="frow frow--in frow--out">
+                <div class="fmain"><div class="node node--screen"><strong>Request status</strong><span>approved or returned</span></div></div>
+              </div>
+              <div class="frow frow--arrow"><div class="varrow"><span>reads the result</span></div></div>
+
+              <div class="frow frow--in frow--out">
+                <div class="fmain"><div class="node node--decision"><span>Approved?</span></div></div>
+                <div class="fline" aria-hidden="true"></div>
+                <div class="fside fside--out">
+                  <span class="flabel">no</span>
+                  <div class="node node--error"><strong>Reason shown</strong><span>what was wrong</span></div>
+                </div>
+              </div>
+              <div class="frow frow--arrow">
+                <div class="varrow"><span>yes</span></div>
+                <div class="varrow varrow--side"><span><span class="nowrap">re-uploads</span> corrected copy</span></div>
+              </div>
+              <div class="frow frow--in">
+                <div class="fmain"><div class="node node--end node--good">Record updated; reminders stop</div></div>
+                <div class="fside fside--end fside--in"><div class="node node--end">Returns to Upload a new copy</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards cards--3 flow-notes">
+          <article class="card">
+            <h3>We expect a bad photo</h3>
+            <p>Most people upload a phone picture, so the file check and its error screen are part of the flow.</p>
+          </article>
+          <article class="card">
+            <h3>Failure has an audience</h3>
+            <p>If the expiry date passes while the copy is still pending, the license expires and the manager is notified.</p>
+          </article>
+          <article class="card">
+            <h3>No dead ends</h3>
+            <p>A returned copy comes with the reason, and Ana goes straight back to upload a corrected one.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================
+       FOOTER  (group split: Final check and publishing)
+       ================================================================ -->
+  <footer class="site-footer on-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SMART Document Expiry Tracker</p>
+          <p class="footer-group">Group 3 · BSIT 4D · IT-SIA 01</p>
+        </div>
+        <ul class="footer-labels" aria-label="Labels used on this page">
+          <li><span class="tag tag--real">Real</span><span>This Framer site, and the LTO rules in the Problem section.</span></li>
+          <li><span class="tag tag--fic">Fictional example</span><span>Bagtas Express, Ana, and everyone else named here. Any match to a real company or person is a coincidence.</span></li>
+          <li><span class="tag tag--sim">Simulated</span><span>Reminder emails and approval flows.</span></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>A class project. Not a real product.</p>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/integrations-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
